@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @splash = false
+    @splash = true
   end
 end
