@@ -1,2 +1,24 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% if @splash %>
+  <%= render 'home/shared/splash' %>
+  <%= render 'home/shared/content' %>
+  <script type="text/javascript">
+      window.onload = () => {
+        const home = document.getElementById('home')
+        home.remove()
+        setTimeout(() => {
+          const splash = document.getElementById('splash')
+          splash.remove()
+          document.body.appendChild(home)
+          home.classList.remove("d-none");
+        }, 5000)
+      }
+  </script>
+<% else %>
+  <%= render 'home/shared/content' %>
+  <script type="text/javascript">
+      window.onload = () => {
+        const home = document.getElementById('home')
+        home.classList.remove("d-none");
+      }
+  </script>
+<% end %>
