@@ -1,4 +1,4 @@
-<% if @splash %>
+<% if !user_signed_in? %>
   <%= render 'home/shared/splash' %>
   <%= render 'home/shared/content' %>
   <script type="text/javascript">
@@ -14,11 +14,5 @@
       }
   </script>
 <% else %>
-  <%= render 'home/shared/content' %>
-  <script type="text/javascript">
-      window.onload = () => {
-        const home = document.getElementById('home')
-        home.classList.remove("d-none");
-      }
-  </script>
+  <%= render 'home/shared/home' %>
 <% end %>
