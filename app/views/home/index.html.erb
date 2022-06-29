@@ -13,6 +13,6 @@
         }, 5000)
       }
   </script>
-<% else %>
-  <%= render 'home/shared/home' %>
+  <% else %>
+  <% controller.redirect_to categories_path %>
 <% end %>

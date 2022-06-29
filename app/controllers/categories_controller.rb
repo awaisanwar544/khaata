@@ -8,12 +8,12 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = current_user.recipes.build(recipe_params)
+    @category = current_user.categories.build(recipe_params)
 
-    if @recipe.save
-      redirect_to recipe_path(@recipe), notice: 'Recipe Created'
+    if @category.save
+      redirect_to categories_path(@category), notice: 'category Created'
     else
-      @errors = @recipe.errors.full_messages
+      @errors = @category.errors.full_messages
       render :new
     end
   end
