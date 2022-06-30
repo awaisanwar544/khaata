@@ -16,7 +16,11 @@
             <h2 class="ms-3"><%= category.name %></h2>
           </div>
           <div>
-            <%= category.icon %>
+            <% @sum = 0 %>
+            <% category.payments.each do |payment| %>
+              <% @sum = @sum + payment.amount %>
+            <% end %>
+            <p><%= @sum %></p>
           </div>
         </div>
       <% end %>

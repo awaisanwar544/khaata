@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
     @payment.category_id = params[:category_id]
 
     if @payment.save
-      redirect_to category_payments_path(@payment), notice: 'Transaction Added'
+      redirect_to category_payments_path(params[:category_id]), notice: 'Transaction Added'
     else
       @errors = @payment.errors.full_messages
       render :new
