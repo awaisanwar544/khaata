@@ -11,7 +11,9 @@
         <div class="p-2 d-flex flex-row bg-light justify-content-between align-items-center">
           <div class="d-flex align-items-center">
             <div class="icon-container">
-            <%= image_tag "food.png", class: 'img-fluid img-thumbnail' %>
+              <% if category.icon.attached? %>
+                <%= image_tag category.icon, class: 'img-fluid img-thumbnail' %>
+              <% end %>
             </div>
             <h2 class="ms-3"><%= category.name %></h2>
           </div>
@@ -20,7 +22,7 @@
             <% category.payments.each do |payment| %>
               <% @sum = @sum + payment.amount %>
             <% end %>
-            <p><%= @sum %></p>
+            <p>Rs. <%= @sum %></p>
           </div>
         </div>
       <% end %>
