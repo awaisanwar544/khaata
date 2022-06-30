@@ -7,7 +7,7 @@
 <div>
   <% if @categories.length.nonzero? %>
     <% @categories.each do |category| %>
-      <%= link_to payments_path, class: "text-decoration-none text-text-color" do %>
+      <%= link_to category_payments_path(category), class: "text-decoration-none text-text-color" do %>
         <div class="p-2 d-flex flex-row bg-light justify-content-between align-items-center">
           <div class="d-flex align-items-center">
             <div class="icon-container">
