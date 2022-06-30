@@ -42,3 +42,7 @@ $utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
   height: 100vh;
 }
 
+.icon-container {
+  width: 3em;
+}
+

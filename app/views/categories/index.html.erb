@@ -1,9 +1,32 @@
-<div class="d-flex align-items-center bg-main-color">
-  <div class="col-4">
-    <%= link_to "Back", controller.controller_name, class: "btn btn-white m-3", role: "button" %>
-  </div>
-  <div class="d-flex justify-content-center col-4 text-white">
+<div class="d-flex align-items-center justify-content-center bg-main-color">
+  <div class="text-white m-3">
     <h1>Categories</h1>
   </div>
+</div>
+
+<div>
+  <% if @categories.length.nonzero? %>
+    <% @categories.each do |category| %>
+      <%= link_to categories_path, class: "text-decoration-none text-text-color" do %>
+        <div class="p-2 d-flex flex-row bg-light justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+            <div class="icon-container">
+            <%= image_tag "food.png", class: 'img-fluid img-thumbnail' %>
+            </div>
+            <h2 class="ms-3"><%= category.name %></h2>
+          </div>
+          <div>
+            <%= category.icon %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p>You've not added any categories yet</p>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to "Add new Category", new_category_path, class: "btn btn-second-color w-100 rounded-0 fixed-bottom", role: "button" %>
 </div>
 
