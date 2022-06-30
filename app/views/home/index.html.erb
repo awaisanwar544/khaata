@@ -1,0 +1,18 @@
+<% if !user_signed_in? %>
+  <%= render 'home/shared/splash' %>
+  <%= render 'home/shared/content' %>
+  <script type="text/javascript">
+      window.onload = () => {
+        const home = document.getElementById('home')
+        home.remove()
+        setTimeout(() => {
+          const splash = document.getElementById('splash')
+          splash.remove()
+          document.body.appendChild(home)
+          home.classList.remove("d-none");
+        }, 5000)
+      }
+  </script>
+  <% else %>
+  <% controller.redirect_to categories_path %>
+<% end %>

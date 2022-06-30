@@ -1,0 +1,32 @@
+<div class="d-flex align-items-center bg-main-color">
+  <div class="col-4">
+    <%= link_to "Back", categories_path, class: "btn btn-white m-3", role: "button" %>
+  </div>
+  <div class="d-flex justify-content-center col-4 text-white">
+    <h1>Transactions</h1>
+  </div>
+</div>
+
+<div>
+  <% if @payments.length.nonzero? %>
+    <% @payments.each do |payment| %>
+      <div class="p-2 d-flex flex-row bg-light justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <div class="icon-container">
+            <%= image_tag "dollar.png", class: 'img-fluid img-thumbnail' %>
+          </div>
+          <h2 class="ms-3"><%= payment.name %></h2>
+        </div>
+        <div>
+          <p>Rs. <%= payment.amount %></p>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>You've not added any transactions yet</p>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to "Add new transaction", new_category_payment_path, class: "btn btn-second-color w-100 rounded-0 fixed-bottom", role: "button" %>
+</div>
